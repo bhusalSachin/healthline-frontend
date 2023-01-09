@@ -5,6 +5,7 @@ import {
   MdOutlinePeople,
   MdOutlineContactSupport,
 } from "react-icons/md";
+
 import { useState } from "react";
 
 const Header = () => {
@@ -18,9 +19,9 @@ const Header = () => {
   };
   return (
     //main header for home page
-    <div className="w-full h-full flex items-center justify-between sm:justify-around bg-cyan-600">
+    <div className="w-full h-full flex items-center justify-between sm:justify-between bg-cyan-600">
       {/* here goes the logo */}
-      <div className="flex items-center h-full w-auto relative p-2 ml-2 sm:ml-0">
+      <div className="flex items-center h-full w-auto relative p-2 ml-2 sm:ml-12">
         {/* icon */}
         <div className="absolute left-0 top-[50%] -translate-y-[50%] sm:text-2xl">
           <MdOutlineHealthAndSafety color="white" />
@@ -40,6 +41,9 @@ const Header = () => {
         <div className={headCss}>
           <MdOutlineHome className="sm:hidden" size={28} color="white" />
           <span>Home</span>
+          {/* <Link href="/home">
+            <Home />
+          </Link> */}
         </div>
         <div className={headCss}>
           <MdOutlinePeople className="sm:hidden" size={28} color="white" />

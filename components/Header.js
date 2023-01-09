@@ -36,7 +36,7 @@ const Header = () => {
       <div
         className={`${
           !isSlider && "hidden"
-        } sm:flex absolute sm:relative top-[4em] right-0 flex flex-col sm:flex-row items-center justify-around rounded-sm w-[60%] sm:w-[40%] h-[91.7%] sm:h-full text-white text-sm bg-cyan-600 p-2`}>
+        } sm:flex absolute sm:relative top-[4em] right-0 sm:top-0 flex flex-col sm:flex-row items-center justify-around rounded-sm w-[60%] sm:w-[40%] h-[91.7%] sm:h-full text-white text-sm bg-cyan-600 p-2`}>
         <div className={headCss}>
           <MdOutlineHome className="sm:hidden" size={28} color="white" />
           <span>Home</span>

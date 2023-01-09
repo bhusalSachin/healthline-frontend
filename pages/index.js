@@ -1,7 +1,13 @@
 import Header from "../components/Header";
-import Link from "next/link";
+import Router from "next/router";
 
 export default function Home() {
+  //setting up router to move onto the register page
+  //will invoke click on a button
+  const goToRegisterPage = () => {
+    Router.push("/register");
+  };
+
   return (
     <div className="w-full h-screen flex flex-col items-center justify-between">
       <div className="w-full h-[4em]">
@@ -23,7 +29,9 @@ export default function Home() {
               At The Right Place
             </span>
             {/* login/signup button */}
-            <div className="absolute bottom-16 left-0 w-full border p-2 rounded-lg bg-cyan-300 hover:bg-cyan-500 hover:cursor-pointer animate-bounce">
+            <div
+              className="absolute bottom-16 left-0 w-full border p-2 rounded-lg bg-cyan-300 hover:bg-cyan-500 hover:cursor-pointer animate-bounce"
+              onClick={goToRegisterPage}>
               <button className="w-full font-serif text-lg text-center text-cyan-900 hover:scale-105 hover:text-white">
                 Register Here
               </button>

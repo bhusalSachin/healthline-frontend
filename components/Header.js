@@ -12,7 +12,7 @@ const Header = () => {
   const [isSlider, setIsSlider] = useState(false);
   //css for the span tag of each page i.e. home, aboutus and contact
   const headCss =
-    "flex flex-col items-center justify-center hover:cursor-pointer hover:scale-105 hover:border-b-2";
+    "flex flex-col items-center justify-center hover:cursor-pointer hover:scale-105 hover:border-b-2 sm:text-[1.07rem]";
   //function to show the slider
   const showSlider = () => {
     setIsSlider(!isSlider);
@@ -41,9 +41,6 @@ const Header = () => {
         <div className={headCss}>
           <MdOutlineHome className="sm:hidden" size={28} color="white" />
           <span>Home</span>
-          {/* <Link href="/home">
-            <Home />
-          </Link> */}
         </div>
         <div className={headCss}>
           <MdOutlinePeople className="sm:hidden" size={28} color="white" />

@@ -1,13 +1,10 @@
 import Router from "next/router";
 
-const Register = () => {
-  // redirect to login if they have user
-  // obviously making only client side now lol
-  const goToLoginPage = () => {
-    Router.push("/login");
+const Login = () => {
+  //lets go back to the register page
+  const goToRegisterPage = () => {
+    Router.push("/register");
   };
-  // lets put the css of input Headers
-  // so i won't mess up later
   const inputCss =
     "font-serif w-full outline-none p-2 text-md placeholder:text-cyan-700 text-cyan-900 rounded-lg focus:border focus:border-b-indigo-500";
   return (
@@ -33,13 +30,8 @@ const Register = () => {
       {/* right side  */}
       {/* real registration form shit */}
       <div className="w-1/3 h-1/2 border bg-cyan-700 border-cyan-500 p-2 rounded-lg flex flex-col items-center justify-center gap-2">
-        <div className="w-full p-2 text-center mt-2">
-          <span className="w-full font-serif text-2xl text-white">
-            Fill This Form Out
-          </span>
-        </div>
-        <div className="w-full mt-2">
-          <input className={inputCss} type="text" placeholder="full name" />
+        <div className="w-full p-2 text-center">
+          <span className="w-full font-serif text-2xl text-white">Login</span>
         </div>
         <div className="w-full mt-2">
           <input
@@ -50,25 +42,24 @@ const Register = () => {
           />
         </div>
         <div className="w-full mt-2">
-          <input className={inputCss} type="text" placeholder="98********" />
-        </div>
-        <div className="w-full mt-2">
           <input className={inputCss} type="text" placeholder="password" />
         </div>
         <div className="w-full border p-2 rounded-md hover:cursor-pointer mt-4">
           <button
             className="font-serif w-full text-white text-lg text-center hover:scale-105"
             type="submit">
-            Register
+            Enter
           </button>
         </div>
         {/* Did i just messed up haha */}
         <div className="flex gap-1 items-center w-full justify-center p-1 mb-1">
-          <span className="text-white text-md">Already Have an Account?</span>
+          <span className="text-white text-md">
+            Oops! Don't Have an Account?
+          </span>
           <span
             className="text-white text-md hover:underline hover:cursor-pointer"
-            onClick={goToLoginPage}>
-            Login Instead?
+            onClick={goToRegisterPage}>
+            Register Here.
           </span>
         </div>
       </div>
@@ -76,4 +67,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;

@@ -23,7 +23,7 @@ export default function Home() {
               At The Right Place
             </span>
             {/* login/signup button */}
-            <div className="absolute bottom-12 w-full border p-2 rounded-lg bg-cyan-300 hover:bg-cyan-500 hover:cursor-pointer animate-bounce">
+            <div className="absolute bottom-16 left-0 w-full border p-2 rounded-lg bg-cyan-300 hover:bg-cyan-500 hover:cursor-pointer animate-bounce">
               <button className="w-full font-serif text-lg text-center text-cyan-900 hover:scale-105 hover:text-white">
                 Register Here
               </button>

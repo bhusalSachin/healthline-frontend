@@ -9,7 +9,7 @@ const Login = () => {
   const inputCss =
     "font-serif w-full outline-none p-2 text-md placeholder:text-cyan-700 text-cyan-900 rounded border border-b-cyan-700 border-l-cyan-800";
   return (
-    <div className="w-full h-screen flex items-center justify-center gap-4 relative">
+    <div className="w-full h-screen flex items-center justify-center gap-4 relative bg-cyan-600">
       {/* including header */}
       <div className="absolute top-0 left-0 w-full h-[4em]">
         <Header />
@@ -25,9 +25,9 @@ const Login = () => {
       </div>
       {/* right side  */}
       {/* real registration form shit */}
-      <div className="w-1/4 border border-slate-400 p-6 rounded-lg flex flex-col items-center justify-center gap-2">
+      <div className="w-1/4 border border-slate-400 bg-white p-6 rounded-lg flex flex-col items-center justify-center gap-2 shadow-xl">
         <div className="w-full p-2 text-center">
-          <span className="w-full font-serif text-2xl text-cyan-800">
+          <span className="w-full font-serif text-2xl text-teal-800">
             Login
           </span>
         </div>

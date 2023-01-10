@@ -12,15 +12,15 @@ const Register = () => {
   const inputCss =
     "font-serif w-full outline-none p-2 text-md placeholder:text-cyan-700 text-cyan-900 rounded border border-b-cyan-700 border-l-cyan-900";
   return (
-    <div className="w-full h-screen flex items-center justify-center gap-4 relative">
+    <div className="w-full h-screen flex items-center justify-center gap-4 relative bg-cyan-600">
       {/* Top part where the logo stuff goes */}
       {/* making this absolute, cause i am lazy */}
-      {/* <div
-        className="absolute top-0 left-[10%] w-[18em] h-[6em] hover:cursor-pointer"
-        onClick={() => {
-          Router.push("/");
-        }}>
-        <img src="/images/logo.svg" alt="you are unlucky!" />
+      {/* <div className="absolute top-0 left-0 w-full h-full -z-20">
+        <img
+          src="/images/signinBg.jpg"
+          alt="you are unlucky!"
+          className="object-cover w-full h-full"
+        />
       </div> */}
       <div className="absolute top-0 left-0 w-full h-[4em]">
         <Header />
@@ -36,9 +36,9 @@ const Register = () => {
       </div>
       {/* right side  */}
       {/* real registration form shit */}
-      <div className="w-1/4 border border-slate-400 p-6 rounded flex flex-col items-center justify-center gap-2">
+      <div className="w-1/4 border border-slate-400 bg-white p-6 rounded flex flex-col items-center justify-center gap-2 shadow-xl">
         <div className="w-full p-2 text-center mt-2">
-          <span className="w-full font-serif text-2xl text-cyan-800 ">
+          <span className="w-full font-serif text-2xl text-teal-800 ">
             Create an Account
           </span>
         </div>
@@ -72,7 +72,7 @@ const Register = () => {
             Already Have an Account?
           </span>
           <span
-            className="text-teal-900 text-md underline hover:cursor-pointer"
+            className="text-teal-800 text-md underline hover:cursor-pointer"
             onClick={goToLoginPage}>
             Login Instead?
           </span>

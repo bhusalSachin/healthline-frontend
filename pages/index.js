@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import Router from "next/router";
+import FallingLeaves from "../components/FallingLeaves";
 
 export default function Home() {
   //setting up router to move onto the register page
@@ -9,7 +10,8 @@ export default function Home() {
   };
 
   return (
-    <div className="w-full h-screen flex flex-col items-center justify-between">
+    <div className="w-full h-screen flex flex-col items-center justify-between relative">
+      <FallingLeaves />
       <div className="w-full h-[4em]">
         <Header />
       </div>
@@ -30,7 +32,7 @@ export default function Home() {
             </span>
             {/* login/signup button */}
             <div
-              className="absolute bottom-16 left-0 w-full border p-2 rounded-lg bg-cyan-300 hover:bg-cyan-500 hover:cursor-pointer animate-bounce"
+              className="absolute bottom-[25%] left-0 w-full border p-3 rounded-lg bg-cyan-300 hover:bg-cyan-500 hover:cursor-pointer"
               onClick={goToRegisterPage}>
               <button className="w-full font-serif text-lg text-center text-cyan-900 hover:scale-105 hover:text-white">
                 Register Here
@@ -46,10 +48,10 @@ export default function Home() {
 
         {/* moving to the second part */}
         {/* will put ambulance stuff here */}
-        <div className="w-full">
+        <div className="w-full h-full flex items-center justify-between p-4">
           {/* left side */}
           {/* a picture of ambulance */}
-          <div className="mt-12 w-[40%] h-full border-none sm:ml-16">
+          <div className="mt-12 w-[40%] h-full border-none">
             <img
               src="/images/ambulance.svg"
               className="w-full h-full object-contain border-none"
@@ -57,12 +59,104 @@ export default function Home() {
           </div>
           {/* right side */}
           {/* text that suits the context */}
+          <div className="mt-12 w-1/2 h-full flex flex-col justify-center gap-2 relative">
+            <span className="text-cyan-600 text-4xl font-serif font-light">
+              Call The
+            </span>
+            <span className="font-serif text-5xl text-cyan-700">Ambulance</span>
+            <span className="font-serif text-6xl text-cyan-800">
+              At The Right Time
+            </span>
+            <div className="w-full mt-3">
+              <p className="text-teal-700 text-2xl">
+                We know the value of the critical one second at the case of
+                emergency, that's why we give the absolute fast response system
+                for ambulance.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* moving to the third part */}
+        {/* will put -- stuff here */}
+        <div className="w-full h-full flex items-center justify-around p-4">
+          {/* left side */}
+          {/* text that suits the context */}
+          <div className="mt-12 w-1/2 h-full flex flex-col justify-center gap-2 sm:ml-16 relative">
+            <span className="text-cyan-600 text-4xl font-serif font-light">
+              Search For
+            </span>
+            <span className="font-serif text-5xl text-cyan-700">Blood</span>
+            <span className="font-serif text-6xl text-cyan-800">
+              In The Right Place
+            </span>
+            <div className="w-full mt-3">
+              <p className="text-teal-700 text-2xl">
+                We know the value of the critical one second at the case of
+                emergency, that's why we give the absolute fast response system
+                for ambulance.
+              </p>
+            </div>
+          </div>
+          {/* right side */}
+          {/* a picture of ambulance */}
+          <div className="mt-12 w-[40%] h-full">
+            <img src="/images/doctors.svg" className=" border-none" />
+          </div>
+        </div>
+
+        {/* moving to the fourth part */}
+        {/* will put ambulance stuff here */}
+        <div className="w-full h-full flex items-center justify-between p-4">
+          {/* left side */}
+          {/* a picture of ambulance */}
+          <div className="mt-12 w-[40%] h-full sm:ml-16">
+            <img
+              src="/images/animated.svg"
+              className="w-full h-full object-contain"
+            />
+          </div>
+          {/* right side */}
+          {/* text that suits the context */}
+          <div className="mt-12 w-1/2 h-full flex flex-col justify-center gap-2 relative">
+            <span className="text-cyan-600 text-4xl font-serif font-light">
+              Take Doctos
+            </span>
+            <span className="font-serif text-5xl text-cyan-700">
+              Appointments
+            </span>
+            <span className="font-serif text-6xl text-cyan-800">
+              In The Right Hospital
+            </span>
+            <div className="w-full mt-3">
+              <p className="text-teal-800 text-2xl">
+                We know the value of the critical one second at the case of
+                emergency, that's why we give the absolute fast response system
+                for ambulance.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
       {/* just random image */}
       {/* might remove later */}
       <div className="w-full h-screen absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] -z-20">
-        <img src="/images/mesh.jpg" className="w-full h-full" />
+        <img src="/images/homebg.jpg" className="w-full h-full object-cover" />
+      </div>
+      <div className="w-full h-full absolute top-[150%] left-[50%] -translate-x-[50%] -translate-y-[50%] -z-20">
+        <img
+          src="/images/homebg.jpg"
+          className="w-full h-full object-cover rotate-180"
+        />
+      </div>
+      <div className="w-full h-full absolute top-[250%] left-[50%] -translate-x-[50%] -translate-y-[50%] -z-20">
+        <img src="/images/homebg.jpg" className="w-full h-full object-cover" />
+      </div>
+      <div className="w-full h-full absolute top-[350%] left-[50%] -translate-x-[50%] -translate-y-[50%] -z-20">
+        <img
+          src="/images/homebg.jpg"
+          className="w-full h-full object-cover rotate-180"
+        />
       </div>
     </div>
   );

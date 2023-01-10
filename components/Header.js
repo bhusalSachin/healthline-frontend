@@ -20,7 +20,7 @@ const Header = () => {
   };
   return (
     //main header for home page
-    <div className="w-full h-full flex items-center justify-between sm:justify-between bg-cyan-600">
+    <div className="w-full h-full flex items-center justify-between sm:justify-between bg-cyan-600 shadow-md">
       {/* here goes the logo */}
       <div
         className="flex items-center h-full w-auto relative p-2 ml-2 sm:ml-12 hover:cursor-pointer"

@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="w-full h-screen flex flex-col items-center justify-between">
       <div className="w-full h-[4em]">
-        <Header />
+        <Header/>
       </div>
       {/* this is going to be the body part of the home page */}
       <div className="body flex flex-col w-full h-full ">

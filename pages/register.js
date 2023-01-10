@@ -1,11 +1,18 @@
 import Router from "next/router";
 
+
 const Register = () => {
   // redirect to login if they have user
   // obviously making only client side now lol
+
   const goToLoginPage = () => {
     Router.push("/login");
   };
+
+  const goToMainPage=()=>{
+    Router.push("/admin/Index");
+  }
+
   // lets put the css of input Headers
   // so i won't mess up later
   const inputCss =
@@ -58,7 +65,8 @@ const Register = () => {
         <div className="w-full border p-2 rounded-md hover:cursor-pointer mt-4">
           <button
             className="font-serif w-full text-white text-lg text-center hover:scale-105"
-            type="submit">
+            type="submit"
+            onClick={goToMainPage}>
             Register
           </button>
         </div>

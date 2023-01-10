@@ -6,9 +6,9 @@ const Login = () => {
     Router.push("/register");
   };
   const inputCss =
-    "font-serif w-full outline-none p-2 text-md placeholder:text-cyan-700 text-cyan-900 rounded-lg focus:border focus:border-b-indigo-500";
+    "font-serif w-full outline-none p-2 text-md placeholder:text-cyan-700 text-cyan-900 rounded focus:border focus:border-b-indigo-500";
   return (
-    <div className="w-full h-screen bg-cyan-200 flex items-center justify-evenly gap-4 relative">
+    <div className="w-full h-screen bg-slate-500 flex items-center justify-evenly gap-4 relative">
       {/* Top part where the logo stuff goes */}
       {/* making this absolute, cause i am lazy */}
       <div
@@ -29,7 +29,7 @@ const Login = () => {
       </div>
       {/* right side  */}
       {/* real registration form shit */}
-      <div className="w-1/3 h-1/2 border bg-cyan-700 border-cyan-500 p-2 rounded-lg flex flex-col items-center justify-center gap-2">
+      <div className="w-1/3 border bg-slate-600 border-slate-400 p-2 rounded-lg flex flex-col items-center justify-center gap-2">
         <div className="w-full p-2 text-center">
           <span className="w-full font-serif text-2xl text-white">Login</span>
         </div>
@@ -44,7 +44,7 @@ const Login = () => {
         <div className="w-full mt-2">
           <input className={inputCss} type="text" placeholder="password" />
         </div>
-        <div className="w-full border p-2 rounded-md hover:cursor-pointer mt-4">
+        <div className="w-full border p-2 rounded hover:cursor-pointer hover:bg-cyan-900 hover:border-none transition-all mt-4">
           <button
             className="font-serif w-full text-white text-lg text-center hover:scale-105"
             type="submit">

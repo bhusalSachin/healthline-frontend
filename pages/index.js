@@ -37,9 +37,26 @@ export default function Home() {
               </button>
             </div>
           </div>
+          {/* right side */}
+          {/* a picture of emergency, that's it */}
           <div className="w-[40%] h-full mt-12">
             <img src="/images/emergency.svg" alt="sorry" />
           </div>
+        </div>
+
+        {/* moving to the second part */}
+        {/* will put ambulance stuff here */}
+        <div className="w-full">
+          {/* left side */}
+          {/* a picture of ambulance */}
+          <div className="mt-12 w-[40%] h-full border-none sm:ml-16">
+            <img
+              src="/images/ambulance.svg"
+              className="w-full h-full object-contain border-none"
+            />
+          </div>
+          {/* right side */}
+          {/* text that suits the context */}
         </div>
       </div>
       {/* just random image */}

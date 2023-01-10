@@ -5,6 +5,7 @@ import {
   MdOutlinePeople,
   MdOutlineContactSupport,
 } from "react-icons/md";
+import Router from "next/router";
 
 import { useState } from "react";
 
@@ -21,7 +22,9 @@ const Header = () => {
     //main header for home page
     <div className="w-full h-full flex items-center justify-between sm:justify-between bg-cyan-600">
       {/* here goes the logo */}
-      <div className="flex items-center h-full w-auto relative p-2 ml-2 sm:ml-12">
+      <div
+        className="flex items-center h-full w-auto relative p-2 ml-2 sm:ml-12 hover:cursor-pointer"
+        onClick={() => Router.push("/")}>
         {/* icon */}
         <div className="absolute left-0 top-[50%] -translate-y-[50%] sm:text-2xl">
           <MdOutlineHealthAndSafety color="white" />

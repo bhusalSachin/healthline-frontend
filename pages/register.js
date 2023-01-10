@@ -1,4 +1,5 @@
 import Router from "next/router";
+import Header from "../components/Header";
 
 const Register = () => {
   // redirect to login if they have user
@@ -9,21 +10,24 @@ const Register = () => {
   // lets put the css of input Headers
   // so i won't mess up later
   const inputCss =
-    "font-serif w-full outline-none p-2 text-md placeholder:text-cyan-700 text-cyan-900 rounded focus:border focus:border-b-indigo-500";
+    "font-serif w-full outline-none p-2 text-md placeholder:text-cyan-700 text-cyan-900 rounded border border-b-cyan-700 border-l-cyan-900";
   return (
-    <div className="w-full h-screen bg-slate-500 flex items-center justify-evenly gap-4 relative">
+    <div className="w-full h-screen flex items-center justify-center gap-4 relative">
       {/* Top part where the logo stuff goes */}
       {/* making this absolute, cause i am lazy */}
-      <div
+      {/* <div
         className="absolute top-0 left-[10%] w-[18em] h-[6em] hover:cursor-pointer"
         onClick={() => {
           Router.push("/");
         }}>
         <img src="/images/logo.svg" alt="you are unlucky!" />
+      </div> */}
+      <div className="absolute top-0 left-0 w-full h-[4em]">
+        <Header />
       </div>
       {/* left side */}
       {/* an illustration image simply pulsating */}
-      <div className="w-1/3 h-auto animate-pulse">
+      <div className="w-[30%] h-auto">
         <img
           src="/images/register.svg"
           alt="sorry! couldn't load the image"
@@ -32,10 +36,10 @@ const Register = () => {
       </div>
       {/* right side  */}
       {/* real registration form shit */}
-      <div className="w-1/3 border bg-slate-600 border-slate-400 p-2 rounded flex flex-col items-center justify-center gap-2">
+      <div className="w-1/4 border border-slate-400 p-6 rounded flex flex-col items-center justify-center gap-2">
         <div className="w-full p-2 text-center mt-2">
-          <span className="w-full font-serif text-2xl text-white">
-            Fill This Form Out
+          <span className="w-full font-serif text-2xl text-cyan-800 ">
+            Create an Account
           </span>
         </div>
         <div className="w-full mt-2">
@@ -55,18 +59,20 @@ const Register = () => {
         <div className="w-full mt-2">
           <input className={inputCss} type="text" placeholder="password" />
         </div>
-        <div className="w-full border p-2 rounded hover:cursor-pointer mt-4 hover:bg-cyan-900 hover:border-none transition">
+        <div className="w-full border p-2 rounded hover:cursor-pointer mt-4 text-white hover:text-teal-800 bg-cyan-900 hover:bg-cyan-50 transition">
           <button
-            className="font-serif w-full text-white text-lg text-center hover:scale-105"
+            className="font-serif w-full text-lg text-center hover:scale-105"
             type="submit">
             Register
           </button>
         </div>
         {/* Did i just mess up haha */}
         <div className="flex gap-1 items-center w-full justify-center p-1 mb-1">
-          <span className="text-white text-md">Already Have an Account?</span>
+          <span className="text-teal-800 text-md">
+            Already Have an Account?
+          </span>
           <span
-            className="text-white text-md hover:underline hover:cursor-pointer"
+            className="text-teal-900 text-md underline hover:cursor-pointer"
             onClick={goToLoginPage}>
             Login Instead?
           </span>

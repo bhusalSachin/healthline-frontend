@@ -1,12 +1,15 @@
 import Router from "next/router";
+
 import Header from "../components/Header";
 
 const Register = () => {
   // redirect to login if they have user
   // obviously making only client side now lol
+
   const goToLoginPage = () => {
     Router.push("/login");
   };
+
   // lets put the css of input Headers
   // so i won't mess up later
   const inputCss =
@@ -61,7 +64,7 @@ const Register = () => {
         </div>
         <div className="w-full border p-2 rounded hover:cursor-pointer mt-4 text-white hover:text-teal-800 bg-cyan-900 hover:bg-cyan-50 transition">
           <button
-            className="font-serif w-full text-lg text-center hover:scale-105"
+            className="font-serif w-full text-white text-lg text-center hover:scale-105"
             type="submit">
             Register
           </button>

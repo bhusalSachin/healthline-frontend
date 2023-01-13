@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import Router from "next/router";
-import FallingLeaves from "../components/FallingLeaves";
+import Footer from "../components/Footer";
 
 export default function Home() {
   //setting up router to move onto the register page
@@ -11,7 +11,6 @@ export default function Home() {
 
   return (
     <div className="w-full h-screen flex flex-col items-center justify-between relative">
-      <FallingLeaves />
       <div className="w-full h-[4em]">
         <Header />
       </div>
@@ -107,7 +106,7 @@ export default function Home() {
 
         {/* moving to the fourth part */}
         {/* will put ambulance stuff here */}
-        <div className="w-full h-full flex items-center justify-between p-4">
+        <div className=" w-full h-full flex items-center justify-between p-4">
           {/* left side */}
           {/* a picture of ambulance */}
           <div className="mt-12 w-[40%] h-full sm:ml-16">
@@ -138,25 +137,30 @@ export default function Home() {
           </div>
         </div>
       </div>
+
       {/* just random image */}
       {/* might remove later */}
-      <div className="w-full h-screen absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] -z-20">
+      <div className="w-full h-screen absolute top-0 left-[50%] -translate-x-[50%] -translate-y-[50%] -z-20">
         <img src="/images/homebg.jpg" className="w-full h-full object-cover" />
       </div>
-      <div className="w-full h-full absolute top-[150%] left-[50%] -translate-x-[50%] -translate-y-[50%] -z-20">
+      <div className="w-full h-full absolute top-[100%] left-[50%] -translate-x-[50%] -translate-y-[50%] -z-20">
         <img
           src="/images/homebg.jpg"
           className="w-full h-full object-cover rotate-180"
         />
       </div>
-      <div className="w-full h-full absolute top-[250%] left-[50%] -translate-x-[50%] -translate-y-[50%] -z-20">
+      <div className="w-full h-full absolute top-[200%] left-[50%] -translate-x-[50%] -translate-y-[50%] -z-20">
         <img src="/images/homebg.jpg" className="w-full h-full object-cover" />
       </div>
-      <div className="w-full h-full absolute top-[350%] left-[50%] -translate-x-[50%] -translate-y-[50%] -z-20">
+      <div className="w-full h-full absolute top-[300%] left-[50%] -translate-x-[50%] -translate-y-[50%] -z-20">
         <img
           src="/images/homebg.jpg"
           className="w-full h-full object-cover rotate-180"
         />
+      </div>
+      {/* Footer part goes here */}
+      <div className="w-full h-1/3 absolute top-[350%] left-0">
+        <Footer />
       </div>
     </div>
   );

@@ -4,9 +4,15 @@ import Header from "../components/Header";
 const Register = () => {
   // redirect to login if they have user
   // obviously making only client side now lol
+
   const goToLoginPage = () => {
     Router.push("/login");
   };
+
+  const goToMainPage = () => {
+    Router.push("/admin/Index");
+  };
+
   // lets put the css of input Headers
   // so i won't mess up later
   const inputCss =
@@ -15,15 +21,12 @@ const Register = () => {
     <div className="w-full h-screen flex items-center justify-center gap-4 relative bg-cyan-600">
       {/* Top part where the logo stuff goes */}
       {/* making this absolute, cause i am lazy */}
-      {/* <div className="absolute top-0 left-0 w-full h-full -z-20">
-        <img
-          src="/images/signinBg.jpg"
-          alt="you are unlucky!"
-          className="object-cover w-full h-full"
-        />
-      </div> */}
-      <div className="absolute top-0 left-0 w-full h-[4em]">
-        <Header />
+      <div
+        className="absolute top-0 left-[10%] w-[18em] h-[6em] hover:cursor-pointer"
+        onClick={() => {
+          Router.push("/");
+        }}>
+        <img src="/images/logo.svg" alt="you are unlucky!" />
       </div>
       {/* left side */}
       {/* an illustration image simply pulsating */}
@@ -61,8 +64,9 @@ const Register = () => {
         </div>
         <div className="w-full border p-2 rounded hover:cursor-pointer mt-4 text-white hover:text-teal-800 bg-cyan-900 hover:bg-cyan-50 transition">
           <button
-            className="font-serif w-full text-lg text-center hover:scale-105"
-            type="submit">
+            className="font-serif w-full text-white text-lg text-center hover:scale-105"
+            type="submit"
+            onClick={goToMainPage}>
             Register
           </button>
         </div>
@@ -72,7 +76,7 @@ const Register = () => {
             Already Have an Account?
           </span>
           <span
-            className="text-teal-800 text-md underline hover:cursor-pointer"
+            className="text-white text-md hover:underline hover:cursor-pointer"
             onClick={goToLoginPage}>
             Login Instead?
           </span>

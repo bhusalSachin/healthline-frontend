@@ -1,6 +1,5 @@
 import Router from "next/router";
 
-
 const Register = () => {
   // redirect to login if they have user
   // obviously making only client side now lol
@@ -9,9 +8,9 @@ const Register = () => {
     Router.push("/login");
   };
 
-  const goToMainPage=()=>{
+  const goToMainPage = () => {
     Router.push("/admin/Index");
-  }
+  };
 
   // lets put the css of input Headers
   // so i won't mess up later
@@ -25,7 +24,8 @@ const Register = () => {
         className="absolute top-0 left-[10%] w-[18em] h-[6em] hover:cursor-pointer"
         onClick={() => {
           Router.push("/");
-        }}>
+        }}
+      >
         <img src="/images/logo.svg" alt="you are unlucky!" />
       </div>
       {/* left side */}
@@ -66,7 +66,8 @@ const Register = () => {
           <button
             className="font-serif w-full text-white text-lg text-center hover:scale-105"
             type="submit"
-            onClick={goToMainPage}>
+            onClick={goToMainPage}
+          >
             Register
           </button>
         </div>
@@ -75,7 +76,8 @@ const Register = () => {
           <span className="text-white text-md">Already Have an Account?</span>
           <span
             className="text-white text-md hover:underline hover:cursor-pointer"
-            onClick={goToLoginPage}>
+            onClick={goToLoginPage}
+          >
             Login Instead?
           </span>
         </div>

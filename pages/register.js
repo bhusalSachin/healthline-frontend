@@ -1,5 +1,5 @@
 import Router from "next/router";
-
+import axios from "axios";
 import Header from "../components/Header";
 
 const Register = () => {
@@ -20,14 +20,10 @@ const Register = () => {
     "font-serif w-full outline-none p-2 text-md placeholder:text-cyan-700 text-cyan-900 rounded border border-b-cyan-700 border-l-cyan-900";
   return (
     <div className="w-full h-screen flex items-center justify-center gap-4 relative bg-cyan-600">
-      {/* Top part where the logo stuff goes */}
       {/* making this absolute, cause i am lazy */}
-      <div
-        className="absolute top-0 left-[10%] w-[18em] h-[6em] hover:cursor-pointer"
-        onClick={() => {
-          Router.push("/");
-        }}>
-        <img src="/images/logo.svg" alt="you are unlucky!" />
+      {/* including header */}
+      <div className="absolute top-0 left-0 w-full h-[4em]">
+        <Header />
       </div>
       {/* left side */}
       {/* an illustration image simply pulsating */}

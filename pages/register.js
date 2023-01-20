@@ -1,6 +1,6 @@
 import Router from "next/router";
-import axios from "axios";
 import Header from "../components/Header";
+import axios from "axios";
 
 const Register = () => {
   // redirect to login if they have user
@@ -59,9 +59,9 @@ const Register = () => {
         <div className="w-full mt-2">
           <input className={inputCss} type="text" placeholder="password" />
         </div>
-        <div className="w-full border p-2 rounded hover:cursor-pointer mt-4 text-white hover:text-teal-800 bg-cyan-900 hover:bg-cyan-50 transition">
+        <div className="w-full border p-2 rounded hover:cursor-pointer mt-4 bg-cyan-900 hover:bg-cyan-50 transition">
           <button
-            className="font-serif w-full text-white text-lg text-center hover:scale-105"
+            className="font-serif w-full text-white hover:text-teal-800 text-lg text-center hover:scale-105"
             type="submit"
             onClick={goToMainPage}>
             Register
@@ -73,7 +73,7 @@ const Register = () => {
             Already Have an Account?
           </span>
           <span
-            className="text-white text-md hover:underline hover:cursor-pointer"
+            className="text-teal-800 underline text-md hover:underline hover:cursor-pointer"
             onClick={goToLoginPage}>
             Login Instead?
           </span>

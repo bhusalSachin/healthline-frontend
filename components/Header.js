@@ -29,7 +29,7 @@ const Header = () => {
         <div className="absolute left-0 top-[50%] -translate-y-[50%] sm:text-2xl">
           <MdOutlineHealthAndSafety color="white" />
         </div>
-        <div className="w-[5em] sm:w-[10em] h-[5em] flex items-center justify-center">
+        <div className="w-[6em] sm:w-[10em] h-[5em] flex items-center justify-center">
           <img
             src="/images/logo.svg"
             className="scale-150 w-full h-full object-cover"

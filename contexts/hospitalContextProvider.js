@@ -14,12 +14,6 @@ export const useHospital = () => {
 //wrap the main admin page with this context provider
 //to use the hospitalData all the routes of admin = hospital
 export const HospitalProvider = ({ id, children }) => {
-  // const [hospital, setHospital] = useState({
-  //   _id: null,
-  //   name: "sacin",
-  //   address: "",
-  //   departments: [],
-  // });
   const [hospital, setHospital] = useState(null);
   const router = useRouter();
   //let's fetch details of the hospital
@@ -36,7 +30,7 @@ export const HospitalProvider = ({ id, children }) => {
         console.log("response = ", response);
         return response;
       } catch (err) {
-        window.alert("Sorry! couldn't fetch the details, try reloading..");
+        console.log("Sorry! couldn't fetch the details, try reloading..");
 
         return null;
       }
@@ -48,13 +42,13 @@ export const HospitalProvider = ({ id, children }) => {
           setHospital(response.data.message);
           console.log("Hospital = ", hospital);
         } else {
-          router.push("/");
-          window.alert(response.data.message);
+          console.log(response.data.message);
+          router.push("/admin/login");
         }
       })
       .catch((error) => {
         console.log(error);
-        window.alert("Sorry! couldn't fetch the details, try reloading..");
+        console.log("Sorry! couldn't fetch the details, try reloading..");
       });
   }, [id]);
 

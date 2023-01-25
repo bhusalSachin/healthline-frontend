@@ -12,7 +12,10 @@ const Hospital = () => {
   useEffect(() => {
     console.log("Hospital = ", hospital);
     if (hospital !== null)
-      router.push(`/admin/${hospital[0].name}?id=${hospital[0]._id}`);
+      router.push({
+        pathname: `/admin/${hospital[0].name}?id=${hospital[0]._id}`,
+        query: hospital,
+      });
   }, [hospital]);
 
   return <div>Secret Page!</div>;

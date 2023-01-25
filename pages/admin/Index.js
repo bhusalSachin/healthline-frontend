@@ -13,6 +13,16 @@ const Admin = () => {
   const router = useRouter();
 
   const { id } = router.query;
+
+  useEffect(() => {
+    const localAdminToken = localStorage.getItem("token");
+
+    // if (localAdminToken) setAdminToken(localAdminToken);
+    if (!localAdminToken) {
+      router.push("/admin/login");
+      // window.alert("Please login!");
+    }
+  }, []);
   return (
     <HospitalProvider id={id}>
       <Hospital />

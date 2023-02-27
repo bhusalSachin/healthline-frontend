@@ -29,7 +29,6 @@ const Login = () => {
 
         router.push({
           pathname: "/admin",
-          query: { id: response.data.message.hospitalId },
         });
       } else {
         setError(response.data.message);

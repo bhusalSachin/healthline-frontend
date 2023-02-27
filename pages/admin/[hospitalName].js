@@ -65,11 +65,11 @@ export async function getServerSideProps(context) {
       };
     }
   } catch (e) {
-    // console.log("caught error ", e);
+    console.log("caught error ", e);
     return {
       redirect: {
         permanent: false,
-        destination: "404",
+        destination: "/404",
       },
       props: {},
     };

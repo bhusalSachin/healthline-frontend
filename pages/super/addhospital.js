@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-// import 'tailwindcss/dist/base.css';
+import NeonButton from "../../components/admin/NeonButton";
+import { IoIosReturnLeft } from "react-icons/io";
+import Link from "next/link";
 
 const AddHospital = () => {
-  //   const [name, setName] = useState("");
-  //   const [username, setUsername] = useState("");
-  //   const [address, setAddress] = useState("");
-  //     const [password, setPassword] = useState("");
   const initialFormData = {
     name: "",
     address: "",
@@ -37,7 +35,7 @@ const AddHospital = () => {
   };
 
   return (
-    <div className="bg-gray-100 h-screen flex items-center justify-center">
+    <div className="bg-gray-100 h-screen flex flex-col items-center justify-center">
       <form
         className="w-1/3 bg-white p-6 rounded-lg shadow-md"
         onSubmit={handleSubmit}>
@@ -96,9 +94,13 @@ const AddHospital = () => {
         </div>
         {success && <p className="text-green-500">{success}</p>}
         {error && <p className="text-red-500">{error}</p>}
-        <button className="bg-cyan-600 text-white p-2 rounded-lg hover:bg-cyan-700">
+        {/* <button className="bg-cyan-600 text-white p-2 rounded-lg hover:bg-cyan-700">
           Add
-        </button>
+        </button> */}
+        <NeonButton label="Add" />
+        <Link href="/super">
+          <NeonButton label={<IoIosReturnLeft size={24} />} float="right" />
+        </Link>
       </form>
     </div>
   );

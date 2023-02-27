@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useCookies } from "react-cookie";
 import Router, { useRouter } from "next/router";
 import axios from "axios";
 // import "tailwindcss/dist/base.css";
@@ -7,6 +8,7 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [cookie, setCookie] = useCookies(["hospital"]);
 
   const router = useRouter();
 
@@ -18,7 +20,12 @@ const Login = () => {
         { username, password }
       );
       if (response.data.success) {
-        localStorage.setItem("token", response.data.message.token);
+        // localStorage.setItem("token", response.data.message.token);
+        setCookie("hospital", response.data.message.token, {
+          path: "/",
+          maxAge: 3600,
+          sameSite: true,
+        });
 
         router.push({
           pathname: "/admin",

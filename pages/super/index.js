@@ -50,7 +50,11 @@ const Super = () => {
                 <td className={tableCss.td}>{hospital.username}</td>
                 <td className={tableCss.td}>{hospital.password}</td>
                 <td className={tableCss.td}>
-                  <Link href="/admin">
+                  <Link
+                    href={{
+                      pathname: `/admin/${hospital.username}`,
+                    }}
+                    replace>
                     <NeonButton
                       label={<IoReturnUpForward size={24} />}
                       transparent

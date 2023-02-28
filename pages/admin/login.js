@@ -4,8 +4,10 @@ import Router, { useRouter } from "next/router";
 import axios from "axios";
 // import "tailwindcss/dist/base.css";
 
-const Login = () => {
-  const [username, setUsername] = useState("");
+const Login = (props) => {
+  const [username, setUsername] = useState(
+    props.username ? props.username : ""
+  );
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [cookie, setCookie] = useCookies(["hospital"]);
@@ -75,6 +77,13 @@ const Login = () => {
       </form>
     </div>
   );
+};
+
+export const getServerSideProps = async (context) => {
+  const { user } = context.query;
+  console.log("login context query = ", context.query);
+  if (user) return { props: { username: user } };
+  return { props: {} };
 };
 
 export default Login;

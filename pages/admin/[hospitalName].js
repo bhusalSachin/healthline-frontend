@@ -37,11 +37,12 @@ export async function getServerSideProps(context) {
     return {
       redirect: {
         permanent: false,
-        destination: "/admin/login",
+        destination: `/admin/login?user=${context.query.hospitalName}`,
       },
       props: {},
     };
   }
+  // console.log("hospitalName context query = ", context.query);
   try {
     const response = await axios.post(
       "http://localhost:8000/hospital/enter",
@@ -59,13 +60,13 @@ export async function getServerSideProps(context) {
       return {
         redirect: {
           permanent: false,
-          destination: "/admin/login",
+          destination: `/admin/login?user=${context.query.hospitalName}`,
         },
         props: {},
       };
     }
   } catch (e) {
-    console.log("caught error ", e);
+    // console.log("caught error ", e);
     return {
       redirect: {
         permanent: false,

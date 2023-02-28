@@ -27,7 +27,7 @@ const Super = () => {
   }, []);
 
   return (
-    <div className="w-full h-screen bg-cyan-50">
+    <div className="w-full h-full lg:h-screen bg-cyan-50">
       <div className="container mx-auto p-4 flex flex-col justify-center items-center">
         <h1 className="text-3xl font-medium mb-4 text-center">
           Hospitals Details
@@ -56,18 +56,40 @@ const Super = () => {
                     }}
                     replace>
                     <NeonButton
-                      label={<IoReturnUpForward size={24} />}
+                      // label={<IoReturnUpForward size={24} />}
+                      label={"visit"}
                       transparent
                     />
+                  </Link>
+                  <Link
+                    href={{
+                      pathname: `/super/edithospital`,
+                      query: { hospital: JSON.stringify(hospital) },
+                    }}
+                    as="/super/edithospital"
+                    replace>
+                    <NeonButton label={"edit"} transparent />
+                  </Link>
+                  <Link
+                    href={{
+                      pathname: `/admin/${hospital.username}`,
+                    }}
+                    replace>
+                    <NeonButton label={"delete"} transparent />
                   </Link>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-        <Link href="/super/addhospital">
-          <NeonButton label={"Add Hospital"} />
-        </Link>
+        <div className="container mx-auto p-4 flex justify-evenly">
+          <Link href="/super/addhospital">
+            <NeonButton label={"Add Hospital"} />
+          </Link>
+          <Link href="/">
+            <NeonButton label={"Return Home"} />
+          </Link>
+        </div>
       </div>
     </div>
   );

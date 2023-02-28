@@ -18,10 +18,10 @@ const editHospital = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("sending new hospital = ", {
-      newHospital: formData,
-      id: hospital._id,
-    });
+    // console.log("sending new hospital = ", {
+    //   newHospital: formData,
+    //   id: hospital._id,
+    // });
     try {
       const response = await axios.post(
         "http://localhost:8000/hospital/edithospital",

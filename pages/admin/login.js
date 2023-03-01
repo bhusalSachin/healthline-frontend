@@ -81,7 +81,7 @@ const Login = (props) => {
 
 export const getServerSideProps = async (context) => {
   const { user } = context.query;
-  console.log("login context query = ", context.query);
+  // console.log("login context query = ", context.query);
   if (user) return { props: { username: user } };
   return { props: {} };
 };

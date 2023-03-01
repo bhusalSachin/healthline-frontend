@@ -18,6 +18,7 @@ const AddHospital = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      console.log("sending hospital = ", formData);
       const response = await axios.post(
         "http://localhost:8000/hospital/createhospital",
         formData
@@ -26,6 +27,7 @@ const AddHospital = () => {
       if (response.data.success) {
         setSuccess("Hospital login credentials added successfully");
         setFormData(initialFormData);
+        setError("");
       } else {
         setError(response.data.message);
       }

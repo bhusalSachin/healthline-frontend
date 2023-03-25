@@ -1,32 +1,12 @@
-import DepartmentList from "../../components/admin/DepartmentList";
+// import DepartmentList from "../../components/admin/DepartmentList";
 import * as cookie from "cookie";
 import axios from "axios";
-import NeonButton from "../../components/admin/NeonButton";
+import NeonButton from "../../../components/admin/NeonButton";
 import { useRouter } from "next/router";
 import { useCookies } from "react-cookie";
 import { useState } from "react";
+import { MdLogout } from "react-icons/md";
 
-// const HospitalPage = (props) => {
-//   const { hospital } = props;
-//   const router = useRouter();
-//   const [cookie, setCookie, removeCookie] = useCookies();
-//   // console.log("final hospital = ", hospital);
-//   const logOutAdmin = () => {
-//     removeCookie("hospital", {
-//       path: "/",
-//     });
-
-//     router.push("/admin");
-//   };
-//   return (
-//     <div>
-//       <DepartmentList departments={hospital.departments} />
-//       <div className="p-4 float-right" onClick={logOutAdmin}>
-//         <NeonButton label="logout" />
-//       </div>
-//     </div>
-//   );
-// };
 const HospitalAdmin = (props) => {
   const [selectedDept, setSelectedDept] = useState(null);
   const [newDeptName, setNewDeptName] = useState("");
@@ -80,17 +60,6 @@ const HospitalAdmin = (props) => {
                         {dept.name}
                       </div>
                     </div>
-                    {/* <NeonButton
-                      label="Edit"
-                      onClick={() => handleEditDept(dept.name)}
-                      className="ml-3"
-                    />
-                    <NeonButton
-                      label="Remove"
-                      onClick={() => handleRemoveDept(dept.name)}
-                      className="ml-3">
-                      Remove
-                    </NeonButton> */}
                   </div>
                 </li>
               ))}
@@ -107,15 +76,14 @@ const HospitalAdmin = (props) => {
               <div className="mt-3 flex justify-end">
                 <NeonButton label="Add Department" onClick={handleAddDept} />
               </div>
+
+              <div
+                className="mt-3 absolute top-0 right-5 hover:cursor-pointer"
+                onClick={logOutAdmin}>
+                <MdLogout size={32} color="teal" />
+              </div>
             </div>
           </div>
-
-          {selectedDept && (
-            <div className="mt-10">
-              <h2 className="text-xl font-bold mb-3">{selectedDept}</h2>
-              {/* TODO: Display department contents here */}
-            </div>
-          )}
         </div>
       </div>
     </div>

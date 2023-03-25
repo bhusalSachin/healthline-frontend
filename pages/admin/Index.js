@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as cookie from "cookie";
 
-const Admin = (props) => {
+const Admin = () => {
   return <div>Hello admin</div>;
 };
 

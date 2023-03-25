@@ -42,9 +42,6 @@ const Register = () => {
     }
   };
   // lets put the css of input Headers
-  // so i won't mess up later
-  const inputCss =
-    "font-serif w-full outline-none p-2 text-md placeholder:text-cyan-700 text-cyan-900 rounded border border-b-cyan-700 border-l-cyan-900";
   return (
     <div className="w-full h-screen flex items-center justify-center gap-4 relative bg-cyan-600">
       {/* making this absolute, cause i am lazy */}

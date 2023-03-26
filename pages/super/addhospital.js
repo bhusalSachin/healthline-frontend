@@ -8,6 +8,9 @@ const AddHospital = () => {
   const initialFormData = {
     name: "",
     address: "",
+    latitude: "",
+    longitude: "",
+    phone: "",
     username: "",
     password: "",
   };
@@ -39,7 +42,7 @@ const AddHospital = () => {
   return (
     <div className="bg-gray-100 h-screen flex flex-col items-center justify-center">
       <form
-        className="w-1/3 bg-white p-6 rounded-lg shadow-md"
+        className="w-1/2 bg-white p-6 rounded-lg shadow-md"
         onSubmit={handleSubmit}>
         <h2 className="text-lg font-medium mb-4 text-center text-cyan-600">
           Add Hospital
@@ -65,6 +68,43 @@ const AddHospital = () => {
             value={formData.address}
             onChange={(e) =>
               setFormData({ ...formData, address: e.target.value })
+            }
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 font-medium mb-2">
+            Latitude
+          </label>
+          <input
+            className="border border-gray-400 p-2 rounded-lg w-full"
+            type="text"
+            value={formData.latitude}
+            onChange={(e) =>
+              setFormData({ ...formData, latitude: e.target.value })
+            }
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 font-medium mb-2">
+            Longitude
+          </label>
+          <input
+            className="border border-gray-400 p-2 rounded-lg w-full"
+            type="text"
+            value={formData.longitude}
+            onChange={(e) =>
+              setFormData({ ...formData, longitude: e.target.value })
+            }
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 font-medium mb-2">Phone</label>
+          <input
+            className="border border-gray-400 p-2 rounded-lg w-full"
+            type="text"
+            value={formData.phone}
+            onChange={(e) =>
+              setFormData({ ...formData, phone: e.target.value })
             }
           />
         </div>
@@ -101,7 +141,9 @@ const AddHospital = () => {
         </button> */}
         <NeonButton label="Add" />
         <Link href="/super">
-          <NeonButton label={<IoIosReturnLeft size={24} />} float="right" />
+          <div className="float-right">
+            <NeonButton label={<IoIosReturnLeft size={24} />} />
+          </div>
         </Link>
       </form>
     </div>

@@ -8,8 +8,9 @@ import { useState } from "react";
 import { MdLogout } from "react-icons/md";
 
 const HospitalAdmin = (props) => {
-  const [selectedDept, setSelectedDept] = useState(null);
   const [newDeptName, setNewDeptName] = useState("");
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
 
   const { hospital } = props;
   // const { departments } = hospital.departments;
@@ -23,8 +24,30 @@ const HospitalAdmin = (props) => {
 
     router.push("/admin");
   };
-  const handleAddDept = () => {
-    // TODO: Implement logic to add new department to the list
+
+  const handleAddDept = async () => {
+    // console.log("new departmetn");
+    //send request to add depart
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/department/createdepartment",
+        {
+          name: newDeptName,
+          description: "",
+          hospitalId: hospital._id,
+        }
+      );
+
+      if (!response.data.success) {
+        setError(response.data.message);
+        setSuccess("");
+      } else {
+        setSuccess(response.data.message);
+        setError("");
+      }
+    } catch (e) {
+      setError(e);
+    }
   };
 
   const handleRemoveDept = (deptName) => {
@@ -44,12 +67,12 @@ const HospitalAdmin = (props) => {
     <div className="min-h-screen bg-gray-50 py-6 flex flex-col justify-center sm:py-12">
       <div className="relative py-3 sm:max-w-xl sm:mx-auto">
         <div className="absolute inset-0 bg-gradient-to-r from-teal-400 to-blue-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl" />
-        <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
+        <div className="h-3/2 relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
           <h1 className="text-3xl font-bold mb-10">Hospital Admin</h1>
 
-          <div>
+          <div className="h-1/2">
             <h2 className="text-xl font-bold mb-3">Departments</h2>
-            <ul>
+            <ul className="overflow-y-auto max-h-1/2">
               {hospital.departments.map((dept) => (
                 <li key={dept.name} className="mb-3">
                   <div className="flex items-center">
@@ -70,12 +93,14 @@ const HospitalAdmin = (props) => {
                 type="text"
                 value={newDeptName}
                 onChange={(e) => setNewDeptName(e.target.value)}
-                placeholder="Enter department name"
+                placeholder="Enter new department name"
                 className="border border-gray-300 rounded-lg px-3 py-2 w-full focus:outline-none focus:border-teal-400"
               />
-              <div className="mt-3 flex justify-end">
-                <NeonButton label="Add Department" onClick={handleAddDept} />
+              <div className="mt-3 flex justify-end" onClick={handleAddDept}>
+                <NeonButton label="Add Department" />
               </div>
+              {success && <p className="text-green-500">{success}</p>}
+              {error && <p className="text-red-500">{error}</p>}
 
               <div
                 className="mt-3 absolute top-0 right-5 hover:cursor-pointer"

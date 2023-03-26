@@ -65,11 +65,31 @@ const HospitalAdmin = (props) => {
 
   return (
     <div className="min-h-screen bg-gray-50 py-6 flex flex-col justify-center sm:py-12">
+      <h1 className="text-3xl font-bold mb-10 text-center">Hospital Admin</h1>
+
+      {/* information about the hospital */}
       <div className="relative py-3 sm:max-w-xl sm:mx-auto">
         <div className="absolute inset-0 bg-gradient-to-r from-teal-400 to-blue-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl" />
         <div className="h-3/2 relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
-          <h1 className="text-3xl font-bold mb-10">Hospital Admin</h1>
+          <div className="h-1/2">
+            <h2 className="text-xl font-bold mb-3">{hospital.name}</h2>
+          </div>
+          <div className="border p-1 flex flex-col h-1/2">
+            <span>Phone: {hospital.phone}</span>
+            <span>Address: {hospital.address}</span>
+          </div>
+          <div
+            className="mt-3 absolute top-0 right-5 hover:cursor-pointer"
+            onClick={logOutAdmin}>
+            <MdLogout size={32} color="teal" />
+          </div>
+        </div>
+      </div>
 
+      {/* department list the hospital */}
+      <div className="relative py-3 sm:max-w-xl sm:mx-auto mt-4">
+        <div className="absolute inset-0 bg-gradient-to-r from-teal-400 to-blue-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl" />
+        <div className="h-3/2 relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
           <div className="h-1/2">
             <h2 className="text-xl font-bold mb-3">Departments</h2>
             <ul className="overflow-y-auto max-h-1/2">
@@ -101,12 +121,6 @@ const HospitalAdmin = (props) => {
               </div>
               {success && <p className="text-green-500">{success}</p>}
               {error && <p className="text-red-500">{error}</p>}
-
-              <div
-                className="mt-3 absolute top-0 right-5 hover:cursor-pointer"
-                onClick={logOutAdmin}>
-                <MdLogout size={32} color="teal" />
-              </div>
             </div>
           </div>
         </div>

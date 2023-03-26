@@ -9,6 +9,13 @@ const editHospital = (props) => {
   const initialFormData = {
     name: hospital.name ? hospital.name : "",
     address: hospital.address ? hospital.address : "",
+    latitude: hospital.coordinates.latitude
+      ? hospital.coordinates.latitude
+      : "",
+    longitude: hospital.coordinates.longitude
+      ? hospital.coordinates.longitude
+      : "",
+    phone: hospital.phone ? hospital.phone : "",
     username: hospital.username ? hospital.username : "",
     password: hospital.password ? hospital.password : "",
   };
@@ -25,7 +32,20 @@ const editHospital = (props) => {
     try {
       const response = await axios.post(
         "http://localhost:8000/hospital/edithospital",
-        { newHospital: formData, id: hospital._id }
+        {
+          newHospital: {
+            name: formData.name,
+            address: formData.address,
+            coordinates: {
+              latitude: formData.latitude,
+              longitude: formData.longitude,
+            },
+            phone: formData.phone,
+            username: formData.username,
+            password: formData.password,
+          },
+          id: hospital._id,
+        }
       );
 
       if (response.data.success) {
@@ -68,6 +88,43 @@ const editHospital = (props) => {
             value={formData.address}
             onChange={(e) =>
               setFormData({ ...formData, address: e.target.value })
+            }
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 font-medium mb-2">
+            latitude
+          </label>
+          <input
+            className="border border-gray-400 p-2 rounded-lg w-full"
+            type="text"
+            value={formData.latitude}
+            onChange={(e) =>
+              setFormData({ ...formData, latitude: e.target.value })
+            }
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 font-medium mb-2">
+            longitude
+          </label>
+          <input
+            className="border border-gray-400 p-2 rounded-lg w-full"
+            type="text"
+            value={formData.longitude}
+            onChange={(e) =>
+              setFormData({ ...formData, longitude: e.target.value })
+            }
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 font-medium mb-2">phone</label>
+          <input
+            className="border border-gray-400 p-2 rounded-lg w-full"
+            type="text"
+            value={formData.phone}
+            onChange={(e) =>
+              setFormData({ ...formData, phone: e.target.value })
             }
           />
         </div>

@@ -8,11 +8,17 @@ import { useState } from "react";
 import { MdLogout } from "react-icons/md";
 
 const HospitalAdmin = (props) => {
+  const { hospital } = props;
   const [newDeptName, setNewDeptName] = useState("");
+  const [availState, setAvailState] = useState({
+    isBloodAvail: hospital.isBloodAvail ? hospital.isBloodAvail : false,
+    isBedAvail: hospital.isBedAvail ? hospital.isBedAvail : false,
+    isDocAvail: hospital.isDocAvail ? hospital.isDocAvail : false,
+    isAmbulAvail: hospital.isAmbulAvail ? hospital.isAmbulAvail : false,
+  });
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
 
-  const { hospital } = props;
   // const { departments } = hospital.departments;
   const router = useRouter();
   const [cookie, setCookie, removeCookie] = useCookies();
@@ -50,12 +56,32 @@ const HospitalAdmin = (props) => {
     }
   };
 
-  const handleRemoveDept = (deptName) => {
-    // TODO: Implement logic to remove department from the list
-  };
+  const handleChangeAvail = async () => {
+    console.log(availState);
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/hospital/edithospital",
+        {
+          newHospital: {
+            isBloodAvail: availState.isBloodAvail,
+            isBedAvail: availState.isBedAvail,
+            isDocAvail: availState.isDocAvail,
+            isAmbulAvail: availState.isAmbulAvail,
+          },
+          id: hospital._id,
+        }
+      );
 
-  const handleEditDept = (deptName) => {
-    // TODO: Implement logic to edit department name
+      if (!response.data.success) {
+        setError(response.data.message);
+        setSuccess("");
+      } else {
+        setSuccess(response.data.message);
+        setError("");
+      }
+    } catch (e) {
+      setError(e);
+    }
   };
 
   const handleSelectDept = (deptName) => {
@@ -66,7 +92,6 @@ const HospitalAdmin = (props) => {
   return (
     <div className="min-h-screen bg-gray-50 py-6 flex flex-col justify-center sm:py-12">
       <h1 className="text-3xl font-bold mb-10 text-center">Hospital Admin</h1>
-
       {/* information about the hospital */}
       <div className="relative py-3 sm:max-w-xl sm:mx-auto">
         <div className="absolute inset-0 bg-gradient-to-r from-teal-400 to-blue-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl" />
@@ -85,7 +110,81 @@ const HospitalAdmin = (props) => {
           </div>
         </div>
       </div>
+      {/* checklist */}
+      <div className="relative py-3 sm:max-w-xl sm:mx-auto mt-4">
+        <div className="absolute inset-0 bg-gradient-to-r from-teal-400 to-blue-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl" />
+        <div className="h-3/2 relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
+          <div className="h-1/2">
+            <h2 className="text-xl font-bold mb-3">
+              Services Availability at Present
+            </h2>
 
+            <div className="flex items-center">
+              <div className="cursor-pointer flex-grow">
+                <div className="bg-gray-200 rounded-lg px-3 py-2 hover:bg-gray-300 transition-colors duration-200">
+                  <div>
+                    <input
+                      type="checkbox"
+                      checked={availState.isBloodAvail}
+                      onChange={(e) =>
+                        setAvailState({
+                          ...availState,
+                          isBloodAvail: e.target.checked,
+                        })
+                      }
+                    />
+                    <label>Blood</label>
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      checked={availState.isBedAvail}
+                      onChange={(e) =>
+                        setAvailState({
+                          ...availState,
+                          isBedAvail: e.target.checked,
+                        })
+                      }
+                    />
+                    <label>Bed</label>
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      checked={availState.isDocAvail}
+                      onChange={(e) =>
+                        setAvailState({
+                          ...availState,
+                          isDocAvail: e.target.checked,
+                        })
+                      }
+                    />
+                    <label>Doctor</label>
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      checked={availState.isAmbulAvail}
+                      onChange={(e) =>
+                        setAvailState({
+                          ...availState,
+                          isAmbulAvail: e.target.checked,
+                        })
+                      }
+                    />
+                    <label>Ambulance</label>
+                  </div>
+                </div>
+                <div
+                  className="mt-3 flex justify-end"
+                  onClick={handleChangeAvail}>
+                  <NeonButton label="Done" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       {/* department list the hospital */}
       <div className="relative py-3 sm:max-w-xl sm:mx-auto mt-4">
         <div className="absolute inset-0 bg-gradient-to-r from-teal-400 to-blue-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl" />

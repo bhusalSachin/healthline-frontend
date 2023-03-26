@@ -20,7 +20,8 @@ const Register = () => {
 
   //function that will take us to login page
   const goToLoginPage = () => {
-    Router.push("/login");
+    Router.push("/");
+    window.alert("Registered successfully!");
   };
 
   //this is function will run after user clicking on the register button
